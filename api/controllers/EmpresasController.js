@@ -9,7 +9,11 @@ module.exports = {
 	data: function (req, res) {
 		Empresas.find(function  (err,obj) {
 			var data = obj;
-			console.log(data.pop().createdAt);
+			if (data)
+				{
+
+			console.log(data);
+				};
     		return res.json(200, obj);
 		})
   	},

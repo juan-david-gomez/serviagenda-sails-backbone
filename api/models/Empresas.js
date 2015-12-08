@@ -10,7 +10,11 @@ module.exports = {
   autoCreatedAt: true,
   autoUpdatedAt: true,
   attributes: {
-  		id:"intreger",
+  		id:{
+  			type:'integer',
+  			primaryKey: true,
+  			autoIncrement: true,
+  		},
   		nombre:'string',
   		direccion:'string',
   }

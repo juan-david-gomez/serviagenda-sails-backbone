@@ -16,11 +16,10 @@ require.config({
       backbone    : 'libs/backbone/backbone',
       underscore  : 'libs/underscore/underscore',
       jquery      : 'libs/jquery/dist/jquery',
-      views       : 'views/',
    },
 });
 
-requirejs(['views!app'],function(AppView){
+requirejs(['views/app'],function(AppView){
   new AppView;
 });
 

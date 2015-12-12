@@ -17,6 +17,9 @@ module.exports = {
   		description:'text',
   		duracion:'integer',
   		precio:'float',
+  		empresa:{
+  			model: 'Empresas',
+  		},
   		usuarios: {
             collection: 'serviciosAsignados',
             via: 'servicio',

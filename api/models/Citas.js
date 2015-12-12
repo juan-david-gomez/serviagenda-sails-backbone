@@ -8,7 +8,29 @@
 module.exports = {
 
   attributes: {
-
+  		id:{
+  			type:'integer',
+  			primaryKey: true,
+  			autoIncrement: true,
+  		},
+  		fecha:'datatime',
+  		hora:'string',
+  		duracion:'integer',
+  		usuario:{
+            model: 'Usuarios',
+      	},
+      	empresa:{
+            model: 'Empresas',
+      	},
+      	cliente:{
+            model: 'Clientes',
+      	},
+      	servicio:{
+            model: 'Servicios',
+      	},
+      	// estado:{
+       //      model: 'Estados',
+      	// }
   }
 };
 

@@ -1,5 +1,6 @@
+var urlIndex = "app/";
 require.config({
-    baseUrl: '',
+    baseUrl: urlIndex,
     shim: {
       underscore: {
         exports: '_'
@@ -19,8 +20,8 @@ require.config({
    },
 });
 
-requirejs(['views/app'],function(AppView){
-  new AppView;
+requirejs(['router'],function(Router){
+  Router.initialize();
 });
 
 

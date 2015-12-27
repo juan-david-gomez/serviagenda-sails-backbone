@@ -3,9 +3,41 @@
 <head>
 	<meta charset="UTF-8">
 	<title>App</title>
+	<!--Bootstrap -->
+	<link rel="stylesheet" href="app/libs/bootstrap/dist/css/bootstrap.css"/>
+	<!--Bootstrap Material Design-->
+	<link rel="stylesheet" href="app/libs/bootstrap-material-design/dist/css/bootstrap-material-design.css"/>
+	<link rel="stylesheet" href="app/libs/bootstrap-material-design/dist/css/ripples.css"/>
+	<!--FullCalendar -->
+	<link rel="stylesheet" href="app/libs/fullcalendar/dist/fullcalendar.css"/>
+	<!--ServiAgenda -->
+	<link rel="stylesheet" href="styles/general.css"/>
+	<link rel="stylesheet" href="styles/app-style.css"/>
 </head>
 <body>
-	<h1>bienvenidos a serviagenda</h1>
-	<script data-main="app/main" src="app/libs/requirejs/require.js"></script>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="javascript:void(0)">ServiAgenda</a>
+			</div>
+			<div class="navbar-collapse navbar-responsive-collapse collapse in" aria-expanded="true" style="">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="javascript:void(0)">Citas</a></li>
+					<li><a href="javascript:void(0)">Negocio</a></li>
+					<li><a href="javascript:void(0)">Clientes</a></li>
+				</ul>
+			</div>
+    </div>
+	</nav>
+	<div class="container-fluid" id="app-content">
+		
+	</div>
+	
+	<script data-main="app/main" src="app/libs/requirejs/require.js"></script>	
 </body>
 </html>

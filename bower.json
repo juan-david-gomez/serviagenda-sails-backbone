@@ -21,6 +21,10 @@
   "dependencies": {
     "jquery": "~2.1.4",
     "backbone": "~1.2.3",
-    "requirejs": "~2.1.22"
+    "requirejs": "~2.1.22",
+    "bootstrap": "~3.3.6",
+    "bootstrap-material-design": "~0.5.7",
+    "fullcalendar": "~2.5.0",
+    "text": "~2.0.14"
   }
 }

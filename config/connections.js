@@ -45,7 +45,7 @@ module.exports.connections = {
     host: 'localhost',
     user: 'root',
     password: 'root',
-    database: 'test'
+    database: 'serviagenda'
   },
   MysqlServerCodeanywhere: {
     adapter: 'sails-mysql',

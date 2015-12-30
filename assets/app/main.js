@@ -38,6 +38,13 @@ require.config({
           'fullcalendar',
         ],
         exports: 'fullcalendarEs'
+      },
+      datepicker: {
+        deps: [
+          'jquery',
+          'bootstrap',
+        ],
+        exports: 'datepicker'
       }
       
     },
@@ -52,10 +59,11 @@ require.config({
       fullcalendarEs  : 'libs/fullcalendar/dist/lang/es',
       moment          : 'libs/moment/moment',
       text            : 'libs/text/text',
+      datepicker      : 'libs/bootstrap-datepicker/dist/js/bootstrap-datepicker',
    },
 });
 
-requirejs(['router','bootstrapM','jquery','fullcalendarEs'],function(Router,bootstrapM,$){
+requirejs(['router','bootstrapM','jquery','fullcalendarEs','datepicker'],function(Router,bootstrapM,$){
   $.material.init();
   Router.initialize();
 });

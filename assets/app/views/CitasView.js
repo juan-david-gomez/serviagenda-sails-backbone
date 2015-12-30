@@ -5,7 +5,9 @@ define(['backbone','text!templates/citas/calendar.html'],function(backbone,calen
 		render:function(){
 			this.$el.html($(calendarTemplate).html());
 			 $('#calendar').fullCalendar();
-			 $('#calendarNav').fullCalendar();
+			 $('#calendarNav').datepicker({
+			    language: "es"
+			});
 		}
 	});
 

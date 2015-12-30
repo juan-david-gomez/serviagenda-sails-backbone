@@ -7,6 +7,7 @@ define(['backbone','views/CitasView'],function(backbone,citasView){
       '': 'citas',
       'citas': 'citas',
       'negocio': 'negocio',
+      'clientes': 'clientes',
       // Default - catch all
       '*actions': 'defaultAction'
     }
@@ -19,7 +20,10 @@ define(['backbone','views/CitasView'],function(backbone,citasView){
       citas.render();
     });
     router.on('route:negocio', function () {
-      alert("Negocio");
+      $("#app-content").html("Negocio");
+    });
+    router.on('route:clientes', function () {
+      $("#app-content").html("Clientes");
     });
     router.on('route:defaultAction', function (actions) {
       //alert("La ruta no esta definida : "+actions);

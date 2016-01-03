@@ -45,6 +45,12 @@ require.config({
           'bootstrap',
         ],
         exports: 'datepicker'
+      },
+      datepickerEs: {
+        deps:[
+          'datepicker'
+        ],
+        exports: 'datepickerEs'
       }
       
     },
@@ -60,10 +66,11 @@ require.config({
       moment          : 'libs/moment/moment',
       text            : 'libs/text/text',
       datepicker      : 'libs/bootstrap-datepicker/dist/js/bootstrap-datepicker',
+      datepickerEs    : 'libs/bootstrap-datepicker/dist/locales/bootstrap-datepicker.es.min',
    },
 });
 
-requirejs(['router','bootstrapM','jquery','fullcalendarEs','datepicker'],function(Router,bootstrapM,$){
+requirejs(['router','bootstrapM','jquery','fullcalendarEs','datepickerEs'],function(Router,bootstrapM,$){
   $.material.init();
   Router.initialize();
 });

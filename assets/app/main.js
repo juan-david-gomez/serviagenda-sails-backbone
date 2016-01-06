@@ -33,7 +33,7 @@ require.config({
       },
       fullcalendarEs: {
         deps: [
-          'moment',
+          'momentEs',
           'jquery',
           'fullcalendar',
         ],
@@ -51,7 +51,13 @@ require.config({
           'datepicker'
         ],
         exports: 'datepickerEs'
-      }
+      },
+      momentEs: {
+        deps: [
+          'moment',
+        ],
+        exports: 'momentEs'
+      },
       
     },
     paths : {
@@ -64,6 +70,7 @@ require.config({
       fullcalendar    : 'libs/fullcalendar/dist/fullcalendar',
       fullcalendarEs  : 'libs/fullcalendar/dist/lang/es',
       moment          : 'libs/moment/moment',
+      momentEs        : 'libs/moment/locale/es',
       text            : 'libs/text/text',
       datepicker      : 'libs/bootstrap-datepicker/dist/js/bootstrap-datepicker',
       datepickerEs    : 'libs/bootstrap-datepicker/dist/locales/bootstrap-datepicker.es.min',

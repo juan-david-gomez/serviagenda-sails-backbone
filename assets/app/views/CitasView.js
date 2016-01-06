@@ -16,36 +16,122 @@ define(['backbone','text!templates/citas/calendar.html','moment'],function(backb
 			this.configCalendar();
 			this.eventsCalendar();
 		},
-
+		//Propiedades Personalizadas
+		viewCalendar:"",
 		//Metodos personalizados
 		configCalendar: function  () {
-			$('#calendar').fullCalendar();
+			var citas = [
+					{
+						title: 'All Day Event',
+						start: '2015-12-01'
+					},
+					{
+						title: 'Long Event',
+						start: '2015-12-07',
+						end: '2015-12-10'
+					},
+					{
+						id: 999,
+						title: 'Repeating Event',
+						start: '2015-12-09T16:00:00'
+					},
+					{
+						id: 999,
+						title: 'Repeating Event',
+						start: '2015-12-16T16:00:00'
+					},
+					{
+						title: 'Conference',
+						start: '2015-12-11',
+						end: '2015-12-13'
+					},
+					{
+						title: 'Meeting',
+						start: '2015-12-12T10:30:00',
+						end: '2015-12-12T12:30:00'
+					},
+					{
+						title: 'Lunch',
+						start: '2015-12-12T12:00:00'
+					},
+					{
+						title: 'Meeting',
+						start: '2015-12-12T14:30:00'
+					},
+					{
+						title: 'Happy Hour',
+						start: '2015-12-12T17:30:00'
+					},
+					{
+						title: 'Dinner',
+						start: '2015-12-12T20:00:00'
+					},
+					{
+						title: 'Birthday Party',
+						start: '2015-12-13T07:00:00'
+					},
+					{
+						title: 'Click for Google',
+						url: 'http://google.com/',
+						start: '2015-12-28'
+					}
+				];
+			var self = this;
+			$('#calendar').fullCalendar({
+				header: {
+					left: 'prev,today,next',
+					center: 'title',
+					right: 'agenda,agendaWeek,agendaDay',
+				},
+				lang:"es",
+				axisFormat: 'h(:mm) a',
+				timeFormat: 'h(:mm) a',
+				defaultView: 'agendaWeek',
+				editable: true,
+				events:citas,
+				viewRender:function  (view, element) {
+					var viewName = view.name;
+					self.viewCalendar = viewName;
+					self.ConfigDatepicker();
+				}
+
+
+			});
 			$('#calendarNav').datepicker({
 			    language: "es",
 			});
-			this.hoverWeekDatepicker();
+			this.ConfigDatepicker();
 		},
-		hoverWeekDatepicker:function(){
-			/*Config Week Styles datepicker*/
+		ConfigDatepicker:function(){
 			var tr = $('body').find('.datepicker-days table tbody tr');
-		    tr.on("mouseover",function(){
-		        $(this).addClass('week');
-		    });
-		    tr.on("mouseout",function(){
-		        $(this).removeClass('week');
-		    });	
+			var trActive = $('body').find('.datepicker-days table tbody tr td.active.day').parent();
+			if (this.viewCalendar=="agendaWeek") {
+				/*Config Week Styles datepicker*/
+			    tr.on("mouseover",function(){
+			        $(this).addClass('week');
+			    });
+			    tr.on("mouseout",function(){
+			        $(this).removeClass('week');
+			    });	
 
-		    $('body').find('.datepicker-days table tbody tr').removeClass('week-active');
+			    $('body').find('.datepicker-days table tbody tr').removeClass('week-active');
 
-		    // add active class
-		    var tr = $('body').find('.datepicker-days table tbody tr td.active.day').parent();
-		    tr.addClass('week-active');
+			    // add active class
+			    trActive.addClass('week-active');
+			}else{
+				tr.unbind("mouseover");
+				tr.unbind("mouseout");
+				tr.removeClass('week');
+
+				trActive.removeClass('week-active');
+			}
+		    
 		},
 		eventsCalendar:function(){
 			var self = this;
 			$('#calendarNav').datepicker().on('changeDate', function(e) {
 
-				self.hoverWeekDatepicker();
+				self.ConfigDatepicker();
 		        var dateObject = e.date;
 			    var dateArray = dateObject.toLocaleString('es',{hour12:false}).split(" ");
 			    var dateString = dateArray[0];

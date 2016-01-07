@@ -84,6 +84,7 @@ define(['backbone','text!templates/citas/calendar.html','moment'],function(backb
 					right: 'agenda,agendaWeek,agendaDay',
 				},
 				lang:"es",
+				height: 500,
 				axisFormat: 'h(:mm) a',
 				timeFormat: 'h(:mm) a',
 				defaultView: 'agendaWeek',
@@ -93,6 +94,7 @@ define(['backbone','text!templates/citas/calendar.html','moment'],function(backb
 					var viewName = view.name;
 					self.viewCalendar = viewName;
 					self.ConfigDatepicker();
+
 				}
 
 
@@ -132,13 +134,16 @@ define(['backbone','text!templates/citas/calendar.html','moment'],function(backb
 			$('#calendarNav').datepicker().on('changeDate', function(e) {
 
 				self.ConfigDatepicker();
-		        var dateObject = e.date;
-			    var dateArray = dateObject.toLocaleString('es',{hour12:false}).split(" ");
-			    var dateString = dateArray[0];
-			    var firstDate = moment(dateString, "DD/MM/YYYY").day(0).format("MM-DD-YYYY");
-			    var lastDate =  moment(dateString, "DD/MM/YYYY").day(6).format("MM-DD-YYYY");
-			    console.log(firstDate);
-			    console.log(lastDate);
+			    // $('#calendar').fullCalendar( 'changeView', 'agendaWeek');
+			    $('#calendar').fullCalendar( 'gotoDate', e.date );
+
+			    var calendar = $('#calendar').fullCalendar('getCalendar');
+		        var view = calendar.view;
+		        var start = view.start._d;
+		        var end = view.end.subtract(1, 'days')._d;
+		        var dates = { start: start, end: end };
+		        console.log(dates) ;
+
 		    });	
 		}
 	});

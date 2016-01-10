@@ -1,9 +1,12 @@
 body { padding-top: 70px; }
 #app-content{
 	height: 82vh;
-	overflow-y: scroll;
+	/*overflow-y: scroll;*/
 }
 .app-column{
 	/*overflow-y: scroll;*/
-	height: 80vh;
+	/*height: 80vh;*/
+}
+#app-datepicker{
+	min-width:215px;
 }

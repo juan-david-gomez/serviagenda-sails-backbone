@@ -84,10 +84,11 @@ define(['backbone','text!templates/citas/calendar.html','moment'],function(backb
 					right: 'agenda,agendaWeek,agendaDay',
 				},
 				lang:"es",
-				height: 500,
+				//height: "auto",
 				axisFormat: 'h(:mm) a',
 				timeFormat: 'h(:mm) a',
 				defaultView: 'agendaWeek',
+				height: $(window).height() - 150,
 				editable: true,
 				events:citas,
 				viewRender:function  (view, element) {
